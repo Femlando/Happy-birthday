@@ -1,0 +1,333 @@
+/* Base Styling */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #f384ffc2, #61dbfa);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+header {
+  position: relative;
+  width: 100%;
+  height: 30vh;
+  background-image: url("./assets/download (1).jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2%;
+  animation: fadeIn 2s ease-out;
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6), 0 0 25px #ff0000, 0 0 5px #ff0000;
+  animation: pulse 3s infinite;
+}
+
+/* Animation for fading in header */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Main Section Styling */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.write-up {
+  background: linear-gradient(
+    to right,
+    rgba(235, 230, 198, 0.997),
+    rgb(118, 153, 247),
+    #fccc7bfe,
+    #d3dc73fe,
+    rgba(248, 157, 118, 0.86),
+    rgb(220, 179, 243)
+  );
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  border-style: dashed;
+}
+
+/* Carousel Styling */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 80vh; /* Increase the height of the carousel to fit larger images */
+  margin: 0 auto;
+  overflow: hidden; /* Hide any overflowing content */
+}
+
+.carousel-box {
+  display: flex;
+  width: 100%;
+  transition: transform 1s ease-in-out;
+  animation: slide 30s infinite;
+}
+
+.carousel-image {
+  width: 100%; /* Ensure each image takes full width */
+  height: 100%; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensures images don't stretch */
+}
+
+/* Carousel Controls (Arrows) */
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10 20px;
+  transform: translateY(-50%);
+}
+
+.carousel-arrow {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 2em;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.carousel-arrow:hover {
+  color: #ff0; /* Yellow on hover */
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  16.66% {
+    transform: translateX(-100%);
+  }
+  33.33% {
+    transform: translateX(-200%);
+  }
+  50% {
+    transform: translateX(-300%);
+  }
+  66.66% {
+    transform: translateX(-400%);
+  }
+  83.33% {
+    transform: translateX(-500%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .carousel {
+    height: 60vh; /* Reduce height for smaller screens */
+  }
+
+  .carousel-image {
+    object-fit: contain; /* Ensures the entire image is visible */
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel {
+    height: 50vh; /* Further reduce height on very small screens */
+  }
+
+  .carousel-image {
+    object-fit: contain; /* Prevents cropping and ensures full image visibility */
+  }
+}
+
+video {
+  width: 80%;
+  max-width: 800px;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+/* For smaller screens like mobile */
+@media (max-width: 768px) {
+  video {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Floating Balloons */
+.floating-balloon {
+  position: absolute;
+  border-radius: 50%;
+  width: 10vw;
+  height: 10vw;
+  max-width: 200px;
+  max-height: 200px;
+  animation: floatBalloon 5s infinite ease-in-out;
+}
+
+@keyframes floatBalloon {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(20vw) translateY(-60vh) rotate(15deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(-20vw) translateY(-100vh) rotate(-15deg);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: floatConfetti 5s linear infinite;
+}
+
+@keyframes floatConfetti {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(300px) rotate(180deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(600px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Footer Styling */
+footer {
+  background-image: url(./assets/download.jpeg);
+  background-size: contain;
+  background-position: center;
+  color: #fefefe;
+  padding: 3px;
+  text-align: center;
+  clear: both;
+  border-radius: 5%;
+}
+
+/* Button Styling */
+.interactive button {
+  padding: 10px 20px;
+  background-color: #fff;
+  color: rgb(31, 4, 76);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.interactive button:hover {
+  background-color: rgb(252, 196, 13);
+  transform: scale(1.1); /* Add scaling effect */
+  transition: transform 0.2s ease;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .carousel {
+    height: 50vw;
+  }
+
+  .carousel-image {
+    object-fit: cover;
+  }
+
+  .floating-balloon {
+    width: 15vw;
+    height: 15vw;
+  }
+
+  footer {
+    padding: 10px;
+  }
+
+  .interactive button {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .carousel {
+    height: 40vw;
+  }
+
+  .floating-balloon {
+    width: 20vw;
+    height: 20vw;
+  }
+
+  .interactive button {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+}
